@@ -1,0 +1,31 @@
+<h1>Hi <%= @name %></h1>
+<p>
+  Here are the list of 3 most tagged Books<br>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Tags</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.description %></td>
+        <td><%= book.price %></td>
+        <td>
+          <% book.tags.each do |tag| %>
+            <span><%= tag.title %></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

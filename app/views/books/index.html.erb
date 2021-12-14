@@ -1,0 +1,29 @@
+<%= render "layouts/alerts" %>
+
+<h1>Books</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Tags</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.description %></td>
+        <td><%= book.price %></td>
+        <td>
+          <% book.tags.each do |tag| %>
+            <span class="tag"><%= tag.title %></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
