@@ -10,7 +10,6 @@ class BookTagsController < ApplicationController
     @book_tag = BookTag.new(book_tag_params)
 
     respond_to do |format|
-      byebug
       if BookTag.save_params(book_tag_params)
         format.html { redirect_to new_book_tag_path, notice: "Book tag was successfully created." }
       else

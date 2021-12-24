@@ -4,7 +4,7 @@ class BooksController < ApplicationController
     @books = Book.all
     @books = @books.by_price(params[:price]) if params[:price].present?
     @books = @books.by_title(params[:title]) if params[:title].present?
-    @books = @books.by_tags_title(params[:tags]) if params[:tags].present?
+    @books = @books.joins(:tags).where('lower(tags.title) LIKE ?',"%#{params[:tags]}%") if params[:tags].present?
   end
 
   private
